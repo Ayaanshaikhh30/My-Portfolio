@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust width */
+    height: 8px; /* For horizontal scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a2e; /* Dark background */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Gradient effect */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3); /* Hover effect */
+  }
+  
