@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Allow Specific Frontend Origins (Local + Deployed)
+//  Allow Specific Frontend Origins (Local + Deployed)
 const allowedOrigins = [
   "http://localhost:5173", 
   "https://golden-kashata-45cb11.netlify.app"  // ✅ Add Netlify frontend URL here
