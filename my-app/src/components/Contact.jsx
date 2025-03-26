@@ -8,7 +8,7 @@
     useEffect(() => {
       const fetchNames = async () => {
         try {
-          const response = await fetch("http://localhost:5000/api/users"); // Replace with your API
+          const response = await fetch("https://portfolio-backend-vu8w.onrender.com/api/users"); // Replace with your API
           const data = await response.json();
           setSuggestions(data.map((user) => user.name));
         } catch (error) {
@@ -25,7 +25,7 @@
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("http://localhost:5000/api/submit", formData, {
+        const response = await axios.post("https://portfolio-backend-vu8w.onrender.com/api/submit", formData, {
           headers: { "Content-Type": "application/json" },
         });
         alert(response.data.message || "Message sent successfully! 🎉");
