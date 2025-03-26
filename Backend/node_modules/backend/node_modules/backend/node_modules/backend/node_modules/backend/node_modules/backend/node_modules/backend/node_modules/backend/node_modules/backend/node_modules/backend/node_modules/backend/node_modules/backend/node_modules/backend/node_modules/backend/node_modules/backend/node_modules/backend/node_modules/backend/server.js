@@ -9,14 +9,27 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// ✅ Allow Specific Frontend Origins (Local + Deployed)
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://golden-kashata-45cb11.netlify.app"  // ✅ Add Netlify frontend URL here
+];
 
-// ✅ OR Allow Specific Frontend Origin
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
 
-// MongoDB Connection
+// Middleware
+app.use(express.json());
+
+// ✅ MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -24,19 +37,15 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log("✅ MongoDB Connected Successfully!"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-// Middleware
-app.use(express.json());
-
-// Simple API Route
+// ✅ Test Route to Check Backend Status
 app.get("/", (req, res) => {
   res.send("Hello, Backend is Running!");
 });
 
-// Start Server
+// ✅ Use Message Routes
+app.use("/api", messageRoutes);
+
+// ✅ Start Server
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
-
-
-
-app.use("/api", messageRoutes);
