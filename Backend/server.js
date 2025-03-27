@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 //  Allow Specific Frontend Origins (Local + Deployed)
 const allowedOrigins = [
   "http://localhost:5173", 
-  "https://golden-kashata-45cb11.netlify.app"  // ✅ Add Netlify frontend URL here
+  "https://loquacious-marshmallow-8862f9.netlify.app/"  // ✅ Add Netlify frontend URL here
 ];
 
 app.use(cors({
