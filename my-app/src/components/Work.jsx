@@ -47,6 +47,21 @@ const Work = () => {
 
       {index === 0 && (  // This ensures buttons are added only for Project 2
         <div className='flex space-x-4 mt-4'>  
+          <a href='https://scintillating-toffee-af9a3f.netlify.app/' target='_blank' rel='noopener noreferrer'>
+            <button className='text-center rounded-lg px-4 py-2 bg-white text-gray-700 font-bold text-sm hover:bg-gray-200 transition duration-300'>
+              Live Demo
+            </button>
+          </a>
+
+          <a href='https://github.com/Ayaanshaikhh30/Medicine_Reminder' target='_blank' rel='noopener noreferrer'>
+            <button className='text-center rounded-lg px-4 py-2 bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition duration-300'>
+              GitHub Code
+            </button>
+          </a>
+        </div>
+      )}
+      {index === 1 && (  // This ensures buttons are added only for Project 2
+        <div className='flex space-x-4 mt-4'>  
           <a href='https://relaxed-bublanina-f108dd.netlify.app/' target='_blank' rel='noopener noreferrer'>
             <button className='text-center rounded-lg px-4 py-2 bg-white text-gray-700 font-bold text-sm hover:bg-gray-200 transition duration-300'>
               Live Demo
@@ -60,7 +75,6 @@ const Work = () => {
           </a>
         </div>
       )}
-      
       
     </div>
   </div>
