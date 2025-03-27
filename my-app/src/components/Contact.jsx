@@ -10,7 +10,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchNames = async () => {
       try {
-        const response = await axios.get("https://portfolio-backend-1-1quk.onrender.com/api/users");
+        const response = await axios.get("https://portfolio-backend-d85q.onrender.com/api/users");
         setSuggestions(response.data.map((user) => user.name));
       } catch (error) {
         console.error("Error fetching names:", error);
@@ -30,7 +30,7 @@ const Contact = () => {
     setLoading(true); // Show loading state
 
     try {
-      const response = await axios.post("https://portfolio-backend-1-1quk.onrender.com/api/submit", formData, {
+      const response = await axios.post("https://portfolio-backend-d85q.onrender.com/api/submit", formData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true, // Ensures cookies are sent if needed
       });
