@@ -10,8 +10,8 @@ const Contact = () => {
   useEffect(() => {
     const fetchNames = async () => {
       try {
-        const response = await axios.get("https://portfolio-backend-d85q.onrender.com/api/users");
-        setSuggestions(response.data.map((user) => user.name));
+        const response = await axios.get("https://portfolio-backend-ks8s.onrender.com/api/messages");
+        setSuggestions(response.data.map((entry) => entry.name));
       } catch (error) {
         console.error("Error fetching names:", error);
       }
@@ -27,16 +27,20 @@ const Contact = () => {
   // ✅ Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
     try {
-      const response = await axios.post("https://portfolio-backend-d85q.onrender.com/api/submit", formData, {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true, // Ensures cookies are sent if needed
-      });
+      const response = await axios.post(
+        "https://portfolio-backend-ks8s.onrender.com/api/messages",
+        formData,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
 
       alert(response.data.message || "Message sent successfully! 🎉");
-      setFormData({ name: "", email: "", message: "" }); // Reset form
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error:", error);
       let errorMsg = "Failed to submit data. Please try again later.";
@@ -45,7 +49,7 @@ const Contact = () => {
       }
       alert(errorMsg);
     } finally {
-      setLoading(false); // Hide loading state
+      setLoading(false);
     }
   };
 
