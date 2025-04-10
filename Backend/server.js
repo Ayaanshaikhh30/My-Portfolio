@@ -1,15 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import messageRoutes from "./routes/messageRoutes.js";
 import cors from "cors";
+import Message from "./models/message.js";  // Don't forget .js here if using ES Modules
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-//  Allow Specific Frontend Origins (Local + Deployed)
+// ✅ Allow Specific Frontend Origins
 const allowedOrigins = [
   "http://localhost:5173",
   "https://joyful-ganache-50026a.netlify.app"
@@ -26,8 +26,7 @@ app.use(cors({
   credentials: true,
 }));
 
-
-// Middleware
+// ✅ Middleware
 app.use(express.json());
 
 // ✅ MongoDB Connection
@@ -43,8 +42,20 @@ app.get("/", (req, res) => {
   res.send("Hello, Backend is Running!");
 });
 
-// ✅ Use Message Routes
-app.use("/api", messageRoutes);
+// ✅ Direct POST Route (Instead of external route file)
+app.post("/api/users", async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+
+    const newMessage = new Message({ name, email, message });
+    await newMessage.save();
+
+    res.status(201).json({ success: true, message: "Message saved successfully!" });
+  } catch (error) {
+    console.error("Error saving message:", error);
+    res.status(500).json({ success: false, message: "Something went wrong!" });
+  }
+});
 
 // ✅ Start Server
 app.listen(PORT, () => {
