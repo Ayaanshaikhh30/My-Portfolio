@@ -5,34 +5,77 @@ import css from "../assets/css.png";
 import tailwind from "../assets/tailwind.png";
 import react from "../assets/react.png";
 
+const techStack = [
+  { src: html, alt: "HTML", percent: 95 },
+  { src: css, alt: "CSS", percent: 90 },
+  { src: javascript, alt: "JavaScript", percent: 85 },
+  { src: tailwind, alt: "Tailwind CSS", percent: 80 },
+  { src: react, alt: "React", percent: 75 },
+];
+
 const Skills = () => {
   return (
-    <div className="bg-black text-gray-400 w-full py-12 px-4">
-      {/* Tech Stack Title */}
-      <h2 className="text-center text-gray-200 text-3xl sm:text-5xl font-bold mb-8 sm:mb-12">
-        My Tech Stack
-      </h2>
+    <section className="w-full bg-gradient-to-b from-black via-[#111] to-black py-20 px-6 sm:px-12 text-white">
+      {/* Heading */}
+      <h2 className="text-center text-3xl sm:text-5xl font-extrabold mb-16 bg-gradient-to-r from-orange-400 to-pink-500 text-transparent bg-clip-text animate-text-glow">
+  My Tech Stack
+</h2>
 
-      {/* Tech Stack Icons */}
-      <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 max-w-[1200px] mx-auto border border-white border-opacity-20 rounded-xl p-8 sm:p-12 shadow-lg shadow-white/10 transition-all duration-300 hover:border-blue-500">
-        {[
-          { src: html, alt: "HTML" },
-          { src: css, alt: "CSS" },
-          { src: javascript, alt: "JavaScript" },
-          { src: tailwind, alt: "Tailwind" },
-          { src: react, alt: "React" },
-        ].map((tech, index) => (
-          <div key={index} className="flex flex-col items-center w-[80px] sm:w-[120px] md:w-[160px]">
-            <img
-              src={tech.src}
-              alt={tech.alt}
-              className="w-full transition-transform duration-300 hover:scale-110"
-            />
-            <p className="mt-2 sm:mt-4 text-white text-sm sm:text-lg font-semibold">{tech.alt}</p>
-          </div>
-        ))}
+
+      <div className="max-w-6xl mx-auto flex flex-col items-center space-y-12">
+        {/* First row - 3 items */}
+        <div className="flex flex-wrap justify-center gap-12">
+          {techStack.slice(0, 3).map((tech, index) => (
+            <div
+              key={index}
+              className="w-64 bg-white/5 rounded-2xl p-6 shadow-xl shadow-pink-500/10 border border-gray-700 hover:border-pink-500 transition-all duration-300 backdrop-blur-lg flex flex-col items-center"
+            >
+              <img
+                src={tech.src}
+                alt={tech.alt}
+                className="w-20 h-20 object-contain mb-4 transition-transform duration-300 hover:scale-110"
+              />
+              <p className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text mb-4">
+                {tech.alt}
+              </p>
+              <div className="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-orange-400 to-pink-500 rounded-full animate-pulse"
+                  style={{ width: `${tech.percent}%` }}
+                ></div>
+              </div>
+              <span className="mt-2 text-sm text-gray-400">{tech.percent}%</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Second row - 2 items */}
+        <div className="flex flex-wrap justify-center gap-12">
+          {techStack.slice(3).map((tech, index) => (
+            <div
+              key={index}
+              className="w-64 bg-white/5 rounded-2xl p-6 shadow-xl shadow-pink-500/10 border border-gray-700 hover:border-pink-500 transition-all duration-300 backdrop-blur-lg flex flex-col items-center"
+            >
+              <img
+                src={tech.src}
+                alt={tech.alt}
+                className="w-20 h-20 object-contain mb-4 transition-transform duration-300 hover:scale-110"
+              />
+              <p className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text mb-4">
+                {tech.alt}
+              </p>
+              <div className="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-orange-400 to-pink-500 rounded-full animate-pulse"
+                  style={{ width: `${tech.percent}%` }}
+                ></div>
+              </div>
+              <span className="mt-2 text-sm text-gray-400">{tech.percent}%</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
