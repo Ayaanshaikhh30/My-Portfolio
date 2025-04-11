@@ -15,7 +15,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "https://portfolio-backend-ks8s.onrender.com/api/users",
+        "https://portfolio-backend-3-cirm.onrender.com/api/users",
         formData,
         {
           headers: { "Content-Type": "application/json" },

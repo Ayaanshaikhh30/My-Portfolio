@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 5000;
 // ✅ Allow Specific Frontend Origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://joyful-ganache-50026a.netlify.app"
+  "https://joyful-ganache-50026a.netlify.app",
+  "https://glittering-clafoutis-104fa7.netlify.app" // ✅  new Netlify link
 ];
 
 app.use(cors({
