@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import Message from "./models/message.js";  // Don't forget .js here if using ES Modules
+import Message from "./models/message.js";  
 
 dotenv.config();
 
