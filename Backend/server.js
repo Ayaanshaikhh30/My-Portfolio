@@ -15,7 +15,7 @@ const allowedOrigins = [
   "https://joyful-ganache-50026a.netlify.app",
   "https://glittering-clafoutis-104fa7.netlify.app" ,
   "https://aesthetic-bombolone-0268dc.netlify.app",
-  "https://ornate-khapse-0e594f.netlify.app/" // ✅  new Netlify link
+  "https://ornate-khapse-0e594f.netlify.app"     // ✅  new Netlify link
 ];
 
 app.use(cors({
