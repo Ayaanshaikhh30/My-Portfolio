@@ -14,7 +14,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://joyful-ganache-50026a.netlify.app",
   "https://glittering-clafoutis-104fa7.netlify.app" ,
-  "https://aesthetic-bombolone-0268dc.netlify.app/" // ✅  new Netlify link
+  "https://aesthetic-bombolone-0268dc.netlify.app" // ✅  new Netlify link
 ];
 
 app.use(cors({
