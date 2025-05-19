@@ -18,6 +18,13 @@ const allowedOrigins = [
   "https://ornate-khapse-0e594f.netlify.app"     // ✅  new Netlify link
 ];
 
+
+app.use((req, res, next) => {
+  console.log("🌐 Request Origin:", req.headers.origin);
+  next();
+});
+
+
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -28,6 +35,8 @@ app.use(cors({
   },
   credentials: true,
 }));
+
+
 
 // ✅ Middleware
 app.use(express.json());
