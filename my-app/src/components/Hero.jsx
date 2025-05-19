@@ -31,7 +31,7 @@ const Hero = () => {
           {/* Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
             <a
-              href="/AyaanShaikh.Resume.pdf"
+              href="/AyaanShaikh.Resume (1).pdf"
               target="_blank"
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-pink-600 hover:scale-105 transition-transform duration-300 shadow-lg text-white text-base"
             >
